@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.resetPasswordSchema = void 0;
 const express_validator_1 = require("express-validator");
 exports.resetPasswordSchema = (0, express_validator_1.checkSchema)({
-    password: {
+    newPassword: {
         notEmpty: {
             errorMessage: "Password is required",
         },

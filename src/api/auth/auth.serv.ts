@@ -30,6 +30,7 @@ const confirmingEmail = async (idUser: number) => {
 };
 
 const forgotedPassword = async (email: string) => {
+	
 	const user = await prisma.user.findUnique({
 		where: {
 			email,

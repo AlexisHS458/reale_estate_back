@@ -19,4 +19,25 @@ const registerEmail = async (email, token, name) => {
 	});
 };
 
-export { registerEmail };
+const forgotEmail = async (email, token, name) => {
+	const transport = nodemailer.createTransport({
+		host: "sandbox.smtp.mailtrap.io",
+		port: 2525,
+		auth: {
+			user: "44aac6aaf81f7a",
+			pass: "8b935d63a08f5b",
+		},
+	});
+
+	await transport.sendMail({
+		from: "alexishs451@gmail.com",
+		to: email,
+		subject: "Reset your password",
+		text: "Reset your password",
+		html: `<h1>Hi ${name}</h1>
+        <p>Click <a href="http://localhost:3000/auth/reset-password/${token}">here</a> to reset password</p>`,
+	});
+};
+
+
+export { registerEmail, forgotEmail };
