@@ -8,6 +8,6 @@ const auth_routes_1 = __importDefault(require("./auth/auth.routes"));
 /* import propertyRoutes from "./properties/properties.routes"; */
 const router = express_1.default.Router();
 router.use("/auth", auth_routes_1.default);
-router.use("/properties");
+/* router.use("/properties") */
 exports.default = router;
 //# sourceMappingURL=api.route.js.map
