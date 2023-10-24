@@ -1,32 +1,36 @@
 {
-  "name": "data-base",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon -c nodemon.json",
-    "build": "tsc"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@prisma/client": "^5.4.2",
-    "@types/bcrypt": "^5.0.0",
-    "@types/express": "^4.17.19",
-    "@types/jsonwebtoken": "^9.0.4",
-    "@types/node": "^20.8.5",
-    "@types/nodemailer": "^6.4.11",
-    "bcrypt": "^5.1.1",
-    "express": "^4.18.2",
-    "express-validator": "^7.0.1",
-    "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^6.9.6",
-    "prisma": "^5.4.2",
-    "typescript": "^5.2.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  }
+	"name": "data-base",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node dist/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "npx nodemon -c nodemon.json",
+		"build": "tsc",
+		"migrate:dev": "prisma migrate dev --preview-feature",
+		"migrate:deploy": "prisma migrate deploy --preview-feature",
+		"migrate:status": "prisma migrate status --preview-feature",
+		"generate": "prisma generate"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@prisma/client": "^5.4.2",
+		"@types/bcrypt": "^5.0.0",
+		"@types/express": "^4.17.19",
+		"@types/jsonwebtoken": "^9.0.4",
+		"@types/node": "^20.8.5",
+		"@types/nodemailer": "^6.4.11",
+		"bcrypt": "^5.1.1",
+		"express": "^4.18.2",
+		"express-validator": "^7.0.1",
+		"jsonwebtoken": "^9.0.2",
+		"nodemailer": "^6.9.6",
+		"prisma": "^5.4.2",
+		"typescript": "^5.2.2"
+	},
+	"devDependencies": {
+		"nodemon": "^3.0.1"
+	}
 }
