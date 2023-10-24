@@ -1,10 +1,11 @@
 import express, { Request, Response } from "express";
 import {
-	confirmEmail,
-	register,
-	forgotPassword,
-	resetPassword,
-	login,
+	handleRegister,
+	handleEmailConfirmation,
+	handleForgotPassword,
+	handlePasswordReset,
+	handleLogin,
+
 } from "./auth.ctrl";
 import { registerSchema } from "./schema/register.schema";
 import { forgotPasswordSchema } from "./schema/forgotPassword.schema";
@@ -13,11 +14,11 @@ import { loginSchema } from "./schema/login.schema";
 const router = express.Router();
 
 /* router.get("/login", loginForm);  */
-router.post("/register", registerSchema, register);
-router.get("/confirm-email/:token", confirmEmail);
-router.get("/reset-password/:token", resetPasswordSchema, resetPassword);
-router.post("/forgot-password", forgotPasswordSchema, forgotPassword);
-router.post("/login", loginSchema, login);
+router.post("/register", registerSchema, handleRegister);
+router.get("/confirm-email/:token", handleEmailConfirmation);
+router.get("/reset-password/:token", resetPasswordSchema, handlePasswordReset);
+router.post("/forgot-password", forgotPasswordSchema, handleForgotPassword);
+router.post("/login", loginSchema, handleLogin);
 /* router.get("/logout");
 router.get("/forgot-password"); */
 

@@ -1,15 +1,21 @@
 import nodemailer from "nodemailer";
+import {
+	EMAIL_HOST,
+	EMAIL_PASS,
+	EMAIL_PORT,
+	EMAIL_USER,
+} from "../utils/constants";
+
+let transport = nodemailer.createTransport({
+	host: EMAIL_HOST,
+	port: Number(EMAIL_PORT),
+	auth: {
+		user: EMAIL_USER,
+		pass: EMAIL_PASS,
+	},
+});
 
 const registerEmail = async (email, token, name) => {
-	const transport = nodemailer.createTransport({
-		host: "sandbox.smtp.mailtrap.io",
-		port: 2525,
-		auth: {
-			user: "44aac6aaf81f7a",
-			pass: "8b935d63a08f5b",
-		},
-	});
-
 	await transport.sendMail({
 		from: "alexishs451@gmail.com",
 		to: email,
@@ -20,15 +26,6 @@ const registerEmail = async (email, token, name) => {
 };
 
 const forgotEmail = async (email, token, name) => {
-	const transport = nodemailer.createTransport({
-		host: "sandbox.smtp.mailtrap.io",
-		port: 2525,
-		auth: {
-			user: "44aac6aaf81f7a",
-			pass: "8b935d63a08f5b",
-		},
-	});
-
 	await transport.sendMail({
 		from: "alexishs451@gmail.com",
 		to: email,
@@ -38,6 +35,5 @@ const forgotEmail = async (email, token, name) => {
         <p>Click <a href="http://localhost:3000/auth/reset-password/${token}">here</a> to reset password</p>`,
 	});
 };
-
 
 export { registerEmail, forgotEmail };
